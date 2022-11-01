@@ -1,9 +1,21 @@
 import sys
 import sqlite3
+import random
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QMessageBox
+from PyQt5.QtGui import QIntValidator
 import uuid
 import hashlib
 from main_form import Ui_Autorization
+from second_form import Ui_Test
+
+
+# id1 - ситаксис
+# id2 - наборы элементов
+# id3 - модули
+# id4 - функции
+# id5 - ооп
+# id6 - работа с файлами
+#
 
 
 def hash_password(password):
@@ -27,6 +39,11 @@ def help_autor(login, password):
     cursor.execute(sqlite_insert_with_param, data_tuple)
     sqlite_connection.commit()
     cursor.close()
+
+
+def choose_random_id():
+    rand_id = random.randint(0, 60)
+    return rand_id
 
 
 class FirstMainForm(QMainWindow, Ui_Autorization):
@@ -72,21 +89,46 @@ class FirstMainForm(QMainWindow, Ui_Autorization):
                         for j in password1:
                             password = j[0]
             except Exception as e:
-                print(e)
+                print(e)  # я хочу спать
             try:
                 if check_username == susername and check_password(password, self.aut_pass.text()):
                     greet.close()
+                    work.show()
+                # print(1)
                 else:
                     self.show_error.setText('Неверный логин или пароль')
             except Exception as e:
-                print(e)
+                if str(e) == "local variable 'susername' referenced before assignment":
+                    self.show_error.setText('Некорректные данные.')
         else:
             self.show_error.setText('Некорректные данные.')
 
+
+class SecondMainForm(QWidget, Ui_Test):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.onlyint = QIntValidator()
+        self.que_number.setValidator(self.onlyint)
+        self.que_number_tem.setValidator(self.onlyint)
+        self.exit.clicked.connect(self.returnn)  # функция на главную
+        self.create.clicked.connect(self.crtest)  # создать тест из случайных вопросов
+
+    def returnn(self):
+        work.close()
+        greet.show()
+
+    def crtest(self):
+        if self.que_number.text():
+            num_que = int(self.que_number.text())
+            con = sqlite3.connect('secret_files.db')
+            cur = con.cursor()
+            pass
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     greet = FirstMainForm()
+    work = SecondMainForm()
     greet.show()
     sys.exit(app.exec())
