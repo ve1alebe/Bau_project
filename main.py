@@ -108,22 +108,13 @@ class SecondMainForm(QWidget, Ui_Test):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.onlyint = QIntValidator()
-        self.que_number.setValidator(self.onlyint)
-        self.que_number_tem.setValidator(self.onlyint)
+
         self.exit.clicked.connect(self.returnn)  # функция на главную
-        self.create.clicked.connect(self.crtest)  # создать тест из случайных вопросов
 
     def returnn(self):
         work.close()
         greet.show()
 
-    def crtest(self):
-        if self.que_number.text():
-            num_que = int(self.que_number.text())
-            con = sqlite3.connect('secret_files.db')
-            cur = con.cursor()
-            pass
 
 
 if __name__ == '__main__':
