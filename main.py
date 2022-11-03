@@ -2,11 +2,11 @@ import sys
 import sqlite3
 import random
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QMessageBox
-from PyQt5.QtGui import QIntValidator
 import uuid
 import hashlib
 from main_form import Ui_Autorization
 from second_form import Ui_Test
+
 
 
 # id1 - ситаксис
@@ -110,11 +110,16 @@ class SecondMainForm(QWidget, Ui_Test):
         self.setupUi(self)
 
         self.exit.clicked.connect(self.returnn)  # функция на главную
+        self.create_2.clicked.connect(self.create2)
 
     def returnn(self):
         work.close()
         greet.show()
 
+    def create2(self):
+        con = sqlite3.connect('secret_files.db')
+        cur = con.cursor()
+        id_list = []
 
 
 if __name__ == '__main__':

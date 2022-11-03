@@ -164,7 +164,7 @@
      <x>520</x>
      <y>260</y>
      <width>611</width>
-     <height>431</height>
+     <height>291</height>
     </rect>
    </property>
    <property name="title">
@@ -274,6 +274,22 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="create_2">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>570</y>
+     <width>231</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Создать вариант!</string>
+   </property>
   </widget>
  </widget>
  <resources/>
