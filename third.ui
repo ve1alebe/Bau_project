@@ -41,36 +41,21 @@
     <pixmap>Snapit-App-Background.png</pixmap>
    </property>
   </widget>
-  <widget class="QLabel" name="topic">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>10</y>
-     <width>331</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
-   </property>
-   <property name="text">
-    <string>Вопрос № /</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="question_text">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>140</y>
-     <width>341</width>
-     <height>61</height>
+     <x>20</x>
+     <y>20</y>
+     <width>1111</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
+    <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
-    <string>Тут вопрос</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Тут вопрос&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;lf&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox">
@@ -143,6 +128,54 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="pixmap">
     <pixmap>pc1.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="next_que">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>580</y>
+     <width>281</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Ответить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="next_que_2">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>580</y>
+     <width>281</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Пропустить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="next_que_3">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>330</y>
+     <width>351</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Начать тест</string>
    </property>
   </widget>
  </widget>
