@@ -490,7 +490,7 @@ class ThirdMainForm(QWidget, Ui_Checker):
                     self.next_que_2.hide()
                     self.question_text.hide()
                     self.next_que_3.show()
-                    self.que = []
+                    self.que = []#
                     self.count = 0
                     self.aim = 0
                     test.hide()
