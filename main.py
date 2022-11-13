@@ -1,13 +1,14 @@
 import sys
 import sqlite3
 import random
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QMessageBox, QVBoxLayout, QLabel, QFormLayout, QGroupBox
 import uuid
 import hashlib
 from main_form import Ui_Autorization
 from second_form import Ui_Test
 from third1 import Ui_Checker
-from fourth import Ui_End
+from fourth1 import Ui_End
+
 
 
 # id1 - ситаксис
@@ -142,11 +143,14 @@ class ThirdMainForm(QWidget, Ui_Checker):
         self.next_que_2.hide()
         self.question_text.hide()
         self.que = []
+        self.answ = []
         self.count = 0
         self.aim = 0
 
     def begin(self):
+        self.answ = []
         self.que = []
+        self.aim = 0
         con = sqlite3.connect('secret_files.db')
         cur = con.cursor()
         result = cur.execute(f"""SELECT syn_mistakes, oop_mistakes, files_mistakes, modules_mistakes, func_mistakes,
@@ -275,193 +279,205 @@ class ThirdMainForm(QWidget, Ui_Checker):
 
     def next(self):
         try:
-            if self.ans0.isChecked():
-                if int(self.tek_correct) == 0:
-                    self.aim += 1
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    low_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in low_mist1:
-                        low_mist = i[0]
-                    if low_mist == 1:
-                        self.syn -= 1
-                    elif low_mist == 2:
-                        self.lists -= 1
-                    elif low_mist == 3:
-                        self.mod -= 1
-                    elif low_mist == 4:
-                        self.func -= 1
-                    elif low_mist == 5:
-                        self.oop -= 1
-                    elif low_mist == 6:
-                        self.files -= 1
-                else:
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    add_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in add_mist1:
-                        add_mist = i[0]
-                    if add_mist == 1:
-                        self.syn += 3
-                    elif add_mist == 2:
-                        self.lists += 3
-                    elif add_mist == 3:
-                        self.mod += 3
-                    elif add_mist == 4:
-                        self.func += 3
-                    elif add_mist == 5:
-                        self.oop += 3
-                    elif add_mist == 6:
-                        self.files += 3
-            elif self.ans1.isChecked():
-                if int(self.tek_correct) == 1:
-                    self.aim += 1
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    low_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in low_mist1:
-                        low_mist = i[0]
-                    if low_mist == 1:
-                        self.syn -= 1
-                    elif low_mist == 2:
-                        self.lists -= 1
-                    elif low_mist == 3:
-                        self.mod -= 1
-                    elif low_mist == 4:
-                        self.func -= 1
-                    elif low_mist == 5:
-                        self.oop -= 1
-                    elif low_mist == 6:
-                        self.files -= 1
-                else:
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    add_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in add_mist1:
-                        add_mist = i[0]
-                    if add_mist == 1:
-                        self.syn += 3
-                    elif add_mist == 2:
-                        self.lists += 3
-                    elif add_mist == 3:
-                        self.mod += 3
-                    elif add_mist == 4:
-                        self.func += 3
-                    elif add_mist == 5:
-                        self.oop += 3
-                    elif add_mist == 6:
-                        self.files += 3
-            elif self.ans2.isChecked():
-                if int(self.tek_correct) == 2:
-                    self.aim += 1
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    low_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in low_mist1:
-                        low_mist = i[0]
-                    if low_mist == 1:
-                        self.syn -= 1
-                    elif low_mist == 2:
-                        self.lists -= 1
-                    elif low_mist == 3:
-                        self.mod -= 1
-                    elif low_mist == 4:
-                        self.func -= 1
-                    elif low_mist == 5:
-                        self.oop -= 1
-                    elif low_mist == 6:
-                        self.files -= 1
-                else:
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    add_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in add_mist1:
-                        add_mist = i[0]
-                    if add_mist == 1:
-                        self.syn += 3
-                    elif add_mist == 2:
-                        self.lists += 3
-                    elif add_mist == 3:
-                        self.mod += 3
-                    elif add_mist == 4:
-                        self.func += 3
-                    elif add_mist == 5:
-                        self.oop += 3
-                    elif add_mist == 6:
-                        self.files += 3
-            elif self.ans3.isChecked():
-                if int(self.tek_correct) == 3:
-                    self.aim += 1
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    low_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in low_mist1:
-                        low_mist = i[0]
-                    if low_mist == 1:
-                        self.syn -= 1
-                    elif low_mist == 2:
-                        self.lists -= 1
-                    elif low_mist == 3:
-                        self.mod -= 1
-                    elif low_mist == 4:
-                        self.func -= 1
-                    elif low_mist == 5:
-                        self.oop -= 1
-                    elif low_mist == 6:
-                        self.files -= 1
-                else:
-                    con = sqlite3.connect('secret_files.db')
-                    cur = con.cursor()
-                    add_mist1 = cur.execute(
-                        f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
-                    for i in add_mist1:
-                        add_mist = i[0]
-                    if add_mist == 1:
-                        self.syn += 3
-                    elif add_mist == 2:
-                        self.lists += 3
-                    elif add_mist == 3:
-                        self.mod += 3
-                    elif add_mist == 4:
-                        self.func += 3
-                    elif add_mist == 5:
-                        self.oop += 3
-                    elif add_mist == 6:
-                        self.files += 3
-            self.count += 1
-            con = sqlite3.connect('secret_files.db')
-            cur = con.cursor()
-            question = cur.execute(f"""SELECT question from tasks WHERE question_id = '{self.que[self.count]}'""")
-            for i in question:
-                tek_question = i[0]
-            answers = cur.execute(f"""SELECT answers from tasks WHERE question_id = '{self.que[self.count]}'""")
-            for i in answers:
-                tek_answers = i[0]
-                tek_answers = tek_answers.split('-')
-            correct_answer = cur.execute(
-                f"""SELECT correct_answer from tasks WHERE question_id = '{self.que[self.count]}'""")
-            for i in correct_answer:
-                self.tek_correct = i[0]
-            self.ans0.show()
-            self.ans0.setText(tek_answers[0])
-            self.ans1.show()
-            self.ans1.setText(tek_answers[1])
-            self.ans2.show()
-            self.ans2.setText(tek_answers[2])
-            self.ans3.show()
-            self.ans3.setText(tek_answers[3])
-            self.next_que.show()
-            self.next_que_2.show()
-            self.question_text.show()
-            self.question_text.setText(f'{tek_question}')
-            self.next_que_3.hide()
+            if self.ans0.isChecked() or self.ans1.isChecked() or self.ans2.isChecked() or self.ans3.isChecked():
+                if self.ans0.isChecked():
+                    if int(self.tek_correct) == 0:
+                        self.aim += 1
+                        self.answ.append(f'№{self.count + 1} - верно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        low_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in low_mist1:
+                            low_mist = i[0]
+                        if low_mist == 1:
+                            self.syn -= 1
+                        elif low_mist == 2:
+                            self.lists -= 1
+                        elif low_mist == 3:
+                            self.mod -= 1
+                        elif low_mist == 4:
+                            self.func -= 1
+                        elif low_mist == 5:
+                            self.oop -= 1
+                        elif low_mist == 6:
+                            self.files -= 1
+                    else:
+                        self.answ.append(f'№{self.count + 1} - неверно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        add_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in add_mist1:
+                            add_mist = i[0]
+                        if add_mist == 1:
+                            self.syn += 3
+                        elif add_mist == 2:
+                            self.lists += 3
+                        elif add_mist == 3:
+                            self.mod += 3
+                        elif add_mist == 4:
+                            self.func += 3
+                        elif add_mist == 5:
+                            self.oop += 3
+                        elif add_mist == 6:
+                            self.files += 3
+                elif self.ans1.isChecked():
+                    if int(self.tek_correct) == 1:
+                        self.aim += 1
+                        self.answ.append(f'№{self.count + 1} - верно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        low_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in low_mist1:
+                            low_mist = i[0]
+                        if low_mist == 1:
+                            self.syn -= 1
+                        elif low_mist == 2:
+                            self.lists -= 1
+                        elif low_mist == 3:
+                            self.mod -= 1
+                        elif low_mist == 4:
+                            self.func -= 1
+                        elif low_mist == 5:
+                            self.oop -= 1
+                        elif low_mist == 6:
+                            self.files -= 1
+                    else:
+                        self.answ.append(f'№{self.count + 1} - неверно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        add_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in add_mist1:
+                            add_mist = i[0]
+                        if add_mist == 1:
+                            self.syn += 3
+                        elif add_mist == 2:
+                            self.lists += 3
+                        elif add_mist == 3:
+                            self.mod += 3
+                        elif add_mist == 4:
+                            self.func += 3
+                        elif add_mist == 5:
+                            self.oop += 3
+                        elif add_mist == 6:
+                            self.files += 3
+                elif self.ans2.isChecked():
+                    if int(self.tek_correct) == 2:
+                        self.aim += 1
+                        self.answ.append(f'№{self.count + 1} - верно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        low_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in low_mist1:
+                            low_mist = i[0]
+                        if low_mist == 1:
+                            self.syn -= 1
+                        elif low_mist == 2:
+                            self.lists -= 1
+                        elif low_mist == 3:
+                            self.mod -= 1
+                        elif low_mist == 4:
+                            self.func -= 1
+                        elif low_mist == 5:
+                            self.oop -= 1
+                        elif low_mist == 6:
+                            self.files -= 1
+                    else:
+                        self.answ.append(f'№{self.count + 1} - неверно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        add_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in add_mist1:
+                            add_mist = i[0]
+                        if add_mist == 1:
+                            self.syn += 3
+                        elif add_mist == 2:
+                            self.lists += 3
+                        elif add_mist == 3:
+                            self.mod += 3
+                        elif add_mist == 4:
+                            self.func += 3
+                        elif add_mist == 5:
+                            self.oop += 3
+                        elif add_mist == 6:
+                            self.files += 3
+                elif self.ans3.isChecked():
+                    if int(self.tek_correct) == 3:
+                        self.aim += 1
+                        self.answ.append(f'№{self.count + 1} - верно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        low_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in low_mist1:
+                            low_mist = i[0]
+                        if low_mist == 1:
+                            self.syn -= 1
+                        elif low_mist == 2:
+                            self.lists -= 1
+                        elif low_mist == 3:
+                            self.mod -= 1
+                        elif low_mist == 4:
+                            self.func -= 1
+                        elif low_mist == 5:
+                            self.oop -= 1
+                        elif low_mist == 6:
+                            self.files -= 1
+                    else:
+                        self.answ.append(f'№{self.count + 1} - неверно')
+                        con = sqlite3.connect('secret_files.db')
+                        cur = con.cursor()
+                        add_mist1 = cur.execute(
+                            f"""SELECT topic_id from tasks WHERE question_id = '{self.que[self.count]}'""")
+                        for i in add_mist1:
+                            add_mist = i[0]
+                        if add_mist == 1:
+                            self.syn += 3
+                        elif add_mist == 2:
+                            self.lists += 3
+                        elif add_mist == 3:
+                            self.mod += 3
+                        elif add_mist == 4:
+                            self.func += 3
+                        elif add_mist == 5:
+                            self.oop += 3
+                        elif add_mist == 6:
+                            self.files += 3
+                self.count += 1
+                con = sqlite3.connect('secret_files.db')
+                cur = con.cursor()
+                question = cur.execute(f"""SELECT question from tasks WHERE question_id = '{self.que[self.count]}'""")
+                for i in question:
+                    tek_question = i[0]
+                answers = cur.execute(f"""SELECT answers from tasks WHERE question_id = '{self.que[self.count]}'""")
+                for i in answers:
+                    tek_answers = i[0]
+                    tek_answers = tek_answers.split('-')
+                correct_answer = cur.execute(
+                    f"""SELECT correct_answer from tasks WHERE question_id = '{self.que[self.count]}'""")
+                for i in correct_answer:
+                    self.tek_correct = i[0]
+                self.ans0.show()
+                self.ans0.setText(tek_answers[0])
+                self.ans1.show()
+                self.ans1.setText(tek_answers[1])
+                self.ans2.show()
+                self.ans2.setText(tek_answers[2])
+                self.ans3.show()
+                self.ans3.setText(tek_answers[3])
+                self.next_que.show()
+                self.next_que_2.show()
+                self.question_text.show()
+                self.question_text.setText(f'{tek_question}')
+                self.next_que_3.hide()
+            else:
+                pass
+
 
         except Exception as e:
             try:
@@ -492,7 +508,6 @@ class ThirdMainForm(QWidget, Ui_Checker):
                     self.next_que_3.show()
                     self.que = []
                     self.count = 0
-                    self.aim = 0
                     test.hide()
                     results.show()
                 else:
@@ -500,7 +515,9 @@ class ThirdMainForm(QWidget, Ui_Checker):
             except Exception as e1:
                 print(e1)
 
+
     def skip(self):
+        self.answ.append(f'№{self.count + 1} - неверно')
         try:
             con = sqlite3.connect('secret_files.db')
             cur = con.cursor()
@@ -579,7 +596,6 @@ class ThirdMainForm(QWidget, Ui_Checker):
                     self.next_que_3.show()
                     self.que = []
                     self.count = 0
-                    self.aim = 0
                     test.hide()
                     results.show()
                 else:
@@ -587,15 +603,40 @@ class ThirdMainForm(QWidget, Ui_Checker):
             except Exception as e1:
                 print(e1)
 
+        finally:
+            print(self.aim)
+
 
 class FourthMainForm(QWidget, Ui_End):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.ret.clicked.connect(self.on_main)
-        test.que = []
+        self.show_results.clicked.connect(self.results)
+        self.topic.setText(f'Результаты')
+        self.res.hide()
+        self.ret.hide()
 
+    def results(self):
+        try:
+            self.topic.setText(f'Ваш результат: {test.aim}')
+            self.show_results.hide()
+            self.res.show()
+            self.ret.show()
+            for i in range(len(test.answ)):
+                self.res.insertPlainText(test.answ[i])
+                self.res.insertPlainText('\n')
+            test.answ = []
+
+        except Exception as e:
+            print(e)
     def on_main(self):
+        self.res.hide()
+        self.ret.hide()
+        self.topic.setText(f'Результаты')
+        self.res.setPlainText('')
+        self.show_results.show()
+        test.aim = 0
         results.close()
         work.show()
 
