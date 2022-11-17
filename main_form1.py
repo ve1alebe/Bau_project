@@ -108,7 +108,7 @@ class Ui_Autorization(object):
         self.show_login.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:12pt;\">Логин</span></p></body></html>"))
         self.show_error.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:14pt;\"><br/></span></p></body></html>"))
         self.reg.setText(_translate("Autorization", "Создать аккаунт"))
-        self.greet_1.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:18pt;\">Система проверка знаний школьников по информатике</span></p></body></html>"))
+        self.greet_1.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:18pt;\">Система проверка знаний школьников Python</span></p></body></html>"))
         self.show_rep_pas.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:12pt;\">Повторите пароль</span></p></body></html>"))
         self.show_login_2.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:12pt;\">Логин</span></p></body></html>"))
         self.just2.setText(_translate("Autorization", "<html><head/><body><p><span style=\" font-size:12pt;\">Зарегистрируйся, если нет аккаунта</span></p></body></html>"))
