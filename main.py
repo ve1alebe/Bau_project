@@ -283,7 +283,7 @@ class ThirdMainForm(QWidget, Ui_Checker):
                 self.que = list_id
                 random.shuffle(self.que)
             except Exception as e:
-                #print(e)
+                # print(e)
                 er.show()
         elif not work.check:
             try:
@@ -358,8 +358,8 @@ class ThirdMainForm(QWidget, Ui_Checker):
                 random.shuffle(self.que)
 
             except Exception as e:
-               # print(e)
-               er.show()
+                # print(e)
+                er.show()
 
         con = sqlite3.connect('secret_files.db')
         cur = con.cursor()
@@ -670,11 +670,11 @@ class ThirdMainForm(QWidget, Ui_Checker):
                     test.hide()
                     results.show()
                 else:
-                   # print(e)
-                   er.show()
+                    # print(e)
+                    er.show()
             except Exception as e1:
-              #  print(e1)
-              er.show()
+                #  print(e1)
+                er.show()
 
     def skip(self):
         self.answ.append(f'№{self.count + 1} - неверно')
@@ -698,7 +698,7 @@ class ThirdMainForm(QWidget, Ui_Checker):
             elif add_mist == 6:
                 self.files += 3
         except Exception as ee:
-            #print(ee)
+            # print(ee)
             er.show()
         try:
             self.count += 1
@@ -760,10 +760,10 @@ class ThirdMainForm(QWidget, Ui_Checker):
                     test.hide()
                     results.show()
                 else:
-                    #print(e, 1)
+                    # print(e, 1)
                     er.show()
             except Exception as e1:
-                #print(e1, 2)
+                # print(e1, 2)
                 er.show()
 
 
@@ -789,8 +789,8 @@ class FourthMainForm(QWidget, Ui_End):
             test.answ = []
 
         except Exception as e:
-           # print(e)
-           er.show()
+            # print(e)
+            er.show()
 
     def on_main(self):
         self.res.hide()
@@ -801,7 +801,6 @@ class FourthMainForm(QWidget, Ui_End):
         test.aim = 0
         results.close()
         work.show()
-
 
 
 class Err(QDialog, Ui_Dialog):
