@@ -128,7 +128,7 @@ class Ui_Test(object):
         _translate = QtCore.QCoreApplication.translate
         Test.setWindowTitle(_translate("Test", "Информатика"))
         self.name.setText(_translate("Test", "<html><head/><body><p><span style=\" font-size:14pt;\">Ваше имя:</span></p></body></html>"))
-        self.l_gen.setText(_translate("Test", "<html><head/><body><p><span style=\" font-size:14pt;\">Сгенерировать вариант</span></p><p><span style=\" font-size:14pt;\">(от 15 случайных вопросов)</span></p></body></html>"))
+        self.l_gen.setText(_translate("Test", "<html><head/><body><p><span style=\" font-size:14pt;\">Сгенерировать вариант</span></p><p><span style=\" font-size:14pt;\"></span></p></body></html>"))
         self.create.setText(_translate("Test", "Создать вариант!"))
         self.exit.setText(_translate("Test", "Выйти"))
         self.rating_2.setText(_translate("Test", "<html><head/><body><p><span style=\" font-size:14pt;\">Создать вариант вручную</span></p></body></html>"))

@@ -20,7 +20,7 @@ class Ui_End(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(-6, -5, 1181, 731))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Snapit-App-Background.png"))
+        self.label.setPixmap(QtGui.QPixmap("../Snapit-App-Background.png"))
         self.label.setObjectName("label")
         self.ret = QtWidgets.QPushButton(Form)
         self.ret.setGeometry(QtCore.QRect(400, 570, 361, 101))
@@ -41,7 +41,7 @@ class Ui_End(object):
         self.pcccccc = QtWidgets.QLabel(Form)
         self.pcccccc.setGeometry(QtCore.QRect(810, 200, 271, 231))
         self.pcccccc.setText("")
-        self.pcccccc.setPixmap(QtGui.QPixmap("pc1.png"))
+        self.pcccccc.setPixmap(QtGui.QPixmap("../pc1.png"))
         self.pcccccc.setObjectName("pcccccc")
 
         self.retranslateUi(Form)
