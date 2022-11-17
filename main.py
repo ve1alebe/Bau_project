@@ -20,7 +20,7 @@ from er import Ui_Dialog
 # id4 - функции
 # id5 - ооп
 # id6 - работа с файлами
-#
+
 
 
 def hash_password(password):
